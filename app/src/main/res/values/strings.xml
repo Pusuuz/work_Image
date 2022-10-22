@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">lists project</string>
+    <string-array name="programming_laguages">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+
+
+
+    </string-array>
+</resources>
