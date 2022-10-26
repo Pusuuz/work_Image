@@ -1,18 +1,19 @@
 <resources>
     <string name="app_name">lists project</string>
+
+
     <string-array name="programming_laguages">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>java script</item>
+        <item>c plus</item>
+        <item>kotlin</item>
+        <item>swift</item>
+        <item>roby</item>
+        <item>dart</item>
+
 
 
 
     </string-array>
+
+
 </resources>
