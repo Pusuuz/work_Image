@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
+import com.example.listsproject.model.Response
 import com.squareup.picasso.Picasso
 
-class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private val data: Response) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
 
@@ -30,48 +30,21 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
 
-        val myImage = viewHolder.itemView.findViewById<ImageView>(R.id.imageView)
-        val myText = viewHolder.itemView.findViewById<TextView>(R.id.namethird)
-        val myLayout = viewHolder.itemView.rootView
+        val myImage = viewHolder.itemView.findViewById<ImageView>(R.id.image)
+        val myTitle = viewHolder.itemView.findViewById<TextView>(R.id.title)
+        val overView = viewHolder.itemView.findViewById<TextView>(R.id.overView)
 
 
-        val contextt = viewHolder.itemView.context
-        val stringArray = contextt.resources.getStringArray(R.array.programming_laguages)
-
-        val textRes = stringArray[position]
-        myText.text=textRes
+        Picasso.get()
+            .load(data.results[position].poster_path)
+            .into(myImage)
 
 
+        myTitle.text = data.results[position].title
 
-        val resColor = when(position){
-            0->R.color.one
-            1-> R.color.two
-            2-> R.color.three
-            3-> R.color.four
-            4-> R.color.five
-            5-> R.color.six
-            else -> R.color.six
-        }
-        val color = ColorStateList.valueOf(getColor(contextt,resColor))
-        myLayout.backgroundTintList = color
-
-
-
-        val imgRes = when(position){
-            0->R.drawable.js
-            1-> R.drawable.c_plus
-            2-> R.drawable.kotlin
-            3-> R.drawable.swift
-            4-> R.drawable.roby
-            5-> R.drawable.dart
-            else -> R.drawable.dart
-        }
-
-
-        myImage.setImageResource(imgRes)
-
+        overView.text = data.results[position].overview
     }
 
-    override fun getItemCount() = 6
+    override fun getItemCount() = data.results.size
 
 }
